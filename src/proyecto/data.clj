@@ -13,7 +13,7 @@
   (as-> (slurp "resources/gun-violence-data.csv") d
         (string/split d #"\n")
         (map #(string/split % #",") d)
-        ;;(map #(map parse-float %) d)
+        (map #(map parse-float %) d)
         (map (fn [s] {:x (drop-last s) :y (last s)}) d)))
 
 ;;calcula el error
